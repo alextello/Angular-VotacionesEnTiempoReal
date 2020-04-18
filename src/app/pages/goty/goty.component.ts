@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { Game } from 'src/app/interfaces/interfaces';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-goty',
@@ -16,5 +17,19 @@ export class GotyComponent implements OnInit {
       console.log(juegos);
       this.juegos = juegos;
     });
+  }
+
+  votarJuego(id: string) {
+    this.gameService
+      .votarJuego(id)
+      .subscribe((res: { ok: boolean; mensaje: string }) => {
+        if (res.ok) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Gracias',
+            text: res.mensaje,
+          });
+        }
+      });
   }
 }
