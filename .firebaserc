@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "firegraficos": {
+      "hosting": {
+        "Votaciones": [
+          "firegraficos"
+        ]
+      }
+    }
+  }
+}
